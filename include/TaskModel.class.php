@@ -58,8 +58,6 @@ class TaskModel
             $values .= "$id";
             $set .= "$ncid = VALUES(`$ncid`)";
         }
-        echo "$names\n";
-        echo "$values\n";
         $sql = "INSERT INTO task ($names) VALUES ($values)";
         $statement = $pdo->prepare($sql);
         $result = $statement->execute($blob);

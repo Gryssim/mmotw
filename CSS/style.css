@@ -1,3 +1,13 @@
 .headerWelcome{
     float: right;
 }
+.taskTitle{
+    font-weight: bold;
+}
+.dayTitle{
+    font-weight: normal;
+    font-size: 20px;
+}
+.taskDescription{
+    font-size: 20px;
+}
