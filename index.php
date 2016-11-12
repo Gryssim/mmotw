@@ -33,7 +33,7 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;$selectedDate";
         <br/>
         <br/>
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-md-3" style="border-style: solid;">
                 <?php
                 //TODO: Re-order week based on $selectedDate as first day, and advance 7 days.
                 $scheduleDate = $selectedDate;
@@ -68,7 +68,9 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;$selectedDate";
                 } */
                 ?>
             </div>
-            <div class="col-lg-6 todayEvents">
+        </div>
+        <div class="row">
+            <div class="col-lg-6 todayEvents" style="border-style: solid;">
                 <?php
                 // var_dump for debug purposes.
                 //var_dump($events);
@@ -87,4 +89,5 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;$selectedDate";
             </div>
         </div>
     </div>
+
 </body>

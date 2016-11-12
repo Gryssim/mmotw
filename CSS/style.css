@@ -11,3 +11,10 @@
 .taskDescription{
     font-size: 20px;
 }
+
+.col-lg-6{
+    border: thin;
+}
+.col-md-3{
+    border: thin;
+}
