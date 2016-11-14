@@ -3,18 +3,16 @@
 }
 .taskTitle{
     font-weight: bold;
+    font-size: 20px;
+    list-style-type: none;
 }
 .dayTitle{
     font-weight: normal;
     font-size: 20px;
 }
 .taskDescription{
-    font-size: 20px;
+    font-size: 15px;
 }
-
-.col-lg-6{
-    border: thin;
-}
-.col-md-3{
-    border: thin;
+.scheduleTask{
+    font-size: 15px;
 }
