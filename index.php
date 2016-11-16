@@ -38,7 +38,8 @@ require_once("./include/header.php");
                 $daysTasks = $taskModel->getTaskBlobByDate($scheduleDate, $_SESSION["user"]["user_name"]);
                 //var_dump($daysTasks);
                 echo "<div>";
-                echo "<label class='dayTitle'>$dayOfTheWeek[$i]&nbsp;&nbsp;" . date("D, M d", strtotime($scheduleDate)) . "</label><ul>";
+                echo "<div class='dayTitle' id='addNew'>$dayOfTheWeek[$i]&nbsp;&nbsp;" . date("D, M d", strtotime($scheduleDate)) . "</div><ul>";
+
                 if(sizeof($daysTasks) > 0){
                     foreach($daysTasks as $tasks) {
                         echo "<li class='scheduleTask'>" . ucfirst($tasks["task_title"]) . "</li>";
@@ -66,8 +67,17 @@ require_once("./include/header.php");
             ?>
         </div>
 
+        <div class="col-md-4" style="display:none" id="newTaskCol">
+            <h3>Add a new task</h3>
+            <form action="POST" target="addTask.php">
+                <label>Date</label><input type="date" name="newDate" id="newDate"> </br>
+                <label>Title</label><input type="text" name="newTitle"> </br>
+                <label>Description</label><input type="textarea" name="newDescription"> </br>
+                <input type="submit" value="Add Task" class="btn btn-danger">
+            </form>
+        </div>
 
-        <div class="col-lg-6 todayEvents">
+        <div class="col-lg-4 todayEvents">
             <?php
             // var_dump for debug purposes.
             //var_dump($events);

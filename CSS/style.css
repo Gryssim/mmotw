@@ -16,3 +16,9 @@
 .scheduleTask{
     font-size: 15px;
 }
+.shown{
+    display:block;
+}
+.hidden{
+    display:none;
+}
