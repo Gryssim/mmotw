@@ -10,6 +10,8 @@ require_once("config.php");
 require_once("TaskModel.class.php");
 require_once("Task.class.php");
 
+// Console add new task (php CreateTask.php {user_name} {date(yy-mm-dd)} {task_title} {task_description}
+
 $task = new Task();
 
 $user_name = $argv[1];

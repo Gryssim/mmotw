@@ -38,7 +38,7 @@ require_once("./include/header.php");
                 $daysTasks = $taskModel->getTaskBlobByDate($scheduleDate, $_SESSION["user"]["user_name"]);
                 //var_dump($daysTasks);
                 echo "<div>";
-                echo "<div class='dayTitle' id='addNew'>$dayOfTheWeek[$i]&nbsp;&nbsp;" . date("D, M d", strtotime($scheduleDate)) . "</div><ul>";
+                echo "<div class='dayTitle' id='addNew'><table><tr><td style='width:150px;'>$dayOfTheWeek[$i]&nbsp;&nbsp;</td><td style='text-align:right'>" . date("D, M d", strtotime($scheduleDate)) . "</td></tr></table></div><ul>";
 
                 if(sizeof($daysTasks) > 0){
                     foreach($daysTasks as $tasks) {

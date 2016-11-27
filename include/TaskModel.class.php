@@ -27,6 +27,7 @@ class TaskModel
 
     function getTaskBlobByDate($taskDateTime, $user_name){
         global $pdo;
+        //Date time in format YY-MM-DD
         $statement = $pdo->prepare("SELECT * FROM task WHERE task_date_time = :taskDateTime 
                                                              AND user_name = :user_name");
         $result = $statement->execute(array(":taskDateTime" => $taskDateTime, ":user_name" => $user_name));
