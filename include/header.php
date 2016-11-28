@@ -12,8 +12,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-        <link rel="stylesheet" type="text/css" href="/mmotw/CSS/style.css">
-        <link rel="script" type="text/javascript" href="/mmotw/js/script.js">
+        <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+        <script src="./js/script.js"></script>
         <title>MMOTW</title>
     </head>
     <body>

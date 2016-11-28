@@ -3,8 +3,16 @@
  * Created by doug on 11/16/16.
  */
 
-var dayDiv = document.getElementById("addNew");
+window.onload = function() {
 
-dayDiv.onclick = function(){
-    document.getElementById("newTaskCol").style.display = "block";
+    var dayDiv = document.getElementById("addNew")
+    var newTaskCol = document.getElementById("newTaskCol")
+
+    dayDiv.onclick = function () {
+        if (newTaskCol.style.display !== 'none') {
+            newTaskCol.style.display = 'none';
+        } else {
+            newTaskCol.style.display = 'block';
+        }
+    };
 };

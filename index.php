@@ -7,7 +7,6 @@ if(!isset($_SESSION["user"])){
 }
 
 $dayOfTheWeek = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-// TODO: fill $events with events of today's date.
 if(!isset($_POST["date"]) || $_POST["date"] == NULL){
     $selectedDate = date("y-m-d");
 } else {
@@ -23,22 +22,26 @@ require_once("./include/header.php");
 ?>
     <div class="container-fluid">
         <form method="POST" target="_self">
-            <label> Select a Date: &nbsp; </label><input type="date" name="date" placeholder="YY-MM-DD"/>
+            <label> Select a Date: &nbsp; </label><input type="date" name="date" placeholder="YY-MM-DD" autocomplete="off"/>
             <input type="submit" class="btn btn-primary">
+            <div id="addNew" class="addNew">Add New Task</div>
         </form>
         <br/>
         <br/>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
             <?php
             //TODO: Re-order week based on $selectedDate as first day, and advance 7 days.
             $scheduleDate = $selectedDate;
             $i =  date("w", strtotime($selectedDate));
             for($j = 0; $j < 7; $j++){
                 $daysTasks = $taskModel->getTaskBlobByDate($scheduleDate, $_SESSION["user"]["user_name"]);
-                //var_dump($daysTasks);
+/*                echo $_SESSION["user"]["user_name"];
+                echo $scheduleDate;
+                var_dump($daysTasks);*/
                 echo "<div>";
-                echo "<div class='dayTitle' id='addNew'><table><tr><td style='width:150px;'>$dayOfTheWeek[$i]&nbsp;&nbsp;</td><td style='text-align:right'>" . date("D, M d", strtotime($scheduleDate)) . "</td></tr></table></div><ul>";
+                echo "<div class='dayTitle'><table><tr><td style='width:150px;'>$dayOfTheWeek[$i]&nbsp;&nbsp;</td>
+                      <td style='text-align:right'>" . date("D, M d", strtotime($scheduleDate)) . "</td></tr></table></div><ul>";
 
                 if(sizeof($daysTasks) > 0){
                     foreach($daysTasks as $tasks) {
@@ -46,7 +49,7 @@ require_once("./include/header.php");
                     }
                     echo "</ul></div>";
                 } else {
-                    echo "<li class='scheduleTask'>There are no tasks scheduled for this day.</li></ul></div>";
+                    echo "<li class='scheduleTask'>There are no tasks scheduled.</li></ul></div>";
                 }
 
                 $i++;
@@ -67,17 +70,19 @@ require_once("./include/header.php");
             ?>
         </div>
 
-        <div class="col-md-4" style="display:none" id="newTaskCol">
+        <div class="col-md-3" style="display:none" id="newTaskCol">
             <h3>Add a new task</h3>
-            <form action="POST" target="addTask.php">
-                <label>Date</label><input type="date" name="newDate" id="newDate"> </br>
-                <label>Title</label><input type="text" name="newTitle"> </br>
-                <label>Description</label><input type="textarea" name="newDescription"> </br>
+            <form action="./include/addTask.php" method="POST" target="_self">
+                <table>
+                <tr><td><label>Date</label></td><td><input type="date" name="newDate" id="newDate" placeholder="YY-MM-DD" autocomplete="off"></td></tr> </br>
+                <tr><td><label>Title<label></td><td><input type="text" name="newTitle" autocomplete="off"></td></tr> </br>
+                <tr><td><label>Description</label></td><td><textarea name="newDescription" autocomplete="off"></textarea></td></tr> </br>
+                </table>
                 <input type="submit" value="Add Task" class="btn btn-danger">
             </form>
         </div>
 
-        <div class="col-lg-4 todayEvents">
+        <div class="col-lg-6 todayEvents">
             <?php
             // var_dump for debug purposes.
             //var_dump($events);
@@ -89,7 +94,7 @@ require_once("./include/header.php");
                     echo "<li class='taskDescription''> " . $event["task_description"] . "</li>";
                 }
             } else {
-                echo "<h3> There are no events set for today.
+                echo "<h3> There are no events scheduled.
                               (" . date("D, M d", strtotime($selectedDate)) . ")</h3>";
             }
             ?>

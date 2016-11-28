@@ -16,9 +16,16 @@
 .scheduleTask{
     font-size: 15px;
 }
+.addNew{
+    color: blue;
+    text-decoration: underline;
+}
 .shown{
     display:block;
 }
 .hidden{
     display:none;
+}
+tr{
+    padding: 0 10px 10px 0;
 }
